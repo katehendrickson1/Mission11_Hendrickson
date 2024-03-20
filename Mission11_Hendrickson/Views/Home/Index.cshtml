@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BookListViewModel 
+
+
+@foreach (Book b in Model.Books) //go into the model and get the thing that has to do with the projects
+{
+    <div class="card m-2 p-2 bg-custom-cream border border-custom-green border-3">
+        <div class="card-body">
+            <h4 class="d-inline text-custom-green">@b.Title</h4>
+            <h5 class="text-muted d-inline ml-2" style="font-style: italic; margin-left: 10px;">By @b.Author</h5>
+            <ul class="mt-3 text-muted">
+                <li>Publisher: @b.Publisher</li>
+                <li>ISBN: @b.Isbn</li>
+                <li>Classification/Category: @b.Classification @b.Category</li>
+                <li>Number of Pages: @b.PageCount</li>
+                <li>Price: @b.Price</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+}
+
+<div page-model="@Model.PaginationInfo" page-action="Index" page-class-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
